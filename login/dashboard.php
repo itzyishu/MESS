@@ -182,7 +182,7 @@ h1{
             <h1>Welcome, MyMessUser!</h1>
             <div class="dashboard-grid">
                 <div class="dashboard-item">
-                    <a href="rules.html">
+                    <a href="next/rules.html">
                         <div class="icon"><img src="images/rule.png" alt="RULES" width="150px" height="100px"></div>
                         <h3>Rules & Regulations</h3>
                     </a>
@@ -196,7 +196,7 @@ h1{
                     </a>
                 </div>
                 <div class="dashboard-item">
-                    <a href="#">
+                    <a href="next/feedback.html">
                         <div class="icon">
                             <img src="images/feed.png" alt="feedback" width="150px" height="100px">
                         </div>
