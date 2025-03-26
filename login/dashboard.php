@@ -18,7 +18,7 @@ body {
     padding: 0;
     background-color: #e3eaf1;
     color: #333;
-    background-image: url('images/Screenshot 2025-03-26 154233.png');
+    background-image: url('../images/Screenshot 2025-03-26 154233.png');
     background-size: cover;
 }
 
@@ -160,7 +160,7 @@ h1{
     <div class="dashboard-container">
         <header>
             <div class="logo">
-                <img src="images/logo.png" alt="MyMess Logo">
+                <img src="../images/logo.png" alt="MyMess Logo">
                 <span>MyMess</span>
             </div>
             <div class="header-right">
@@ -183,14 +183,14 @@ h1{
             <div class="dashboard-grid">
                 <div class="dashboard-item">
                     <a href="next/rules.html">
-                        <div class="icon"><img src="images/rule.png" alt="RULES" width="150px" height="100px"></div>
+                        <div class="icon"><img src="../images/rule.png" alt="RULES" width="150px" height="100px"></div>
                         <h3>Rules & Regulations</h3>
                     </a>
                 </div>
                 <div class="dashboard-item">
                     <a href="https://messit.vinnovateit.com/" target="_blank">
                         <div class="icon1">
-                            <img src="images/rr.png" alt="MENU" width="300px" height="100px">
+                            <img src="../images/rr.png" alt="MENU" width="300px" height="100px">
                         </div>
                         
                     </a>
@@ -198,7 +198,7 @@ h1{
                 <div class="dashboard-item">
                     <a href="next/feedback.html">
                         <div class="icon">
-                            <img src="images/feed.png" alt="feedback" width="150px" height="100px">
+                            <img src="../images/feed.png" alt="feedback" width="150px" height="100px">
                         </div>
                         <h3>Feedback</h3>
                     </a>
