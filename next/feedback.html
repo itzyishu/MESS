@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Mess Registration Form</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            background: url('images/bg.png') no-repeat center center;
+            background-size: cover;
+        }
+        .nav-bar {
+            background-color: #333333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #4CAF50;
+        }
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/bg.png') no-repeat center center;
+            background-size: cover;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        .feedback-container {
+            position: relative;
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: rgba(50, 50, 50, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .feedback-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .satisfaction-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .satisfaction-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        .satisfaction-option input {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+        }
+        .satisfaction-option input:checked {
+            background-color: #4CAF50;
+        }
+        .feedback-input {
+            width: 100%;
+            background-color: rgba(51, 50, 50, 0.8);
+            border: none;
+            color: white;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .name-email-container {
+            display: flex;
+            gap: 10px;
+        }
+        .send-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .send-button:hover {
+            background-color: #45a049;
+        }
+        .footer {
+            text-align: center;
+            color: #888;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(30, 30, 30, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-logo">MyMess</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Mess Menu</a>
+            <a href="#">Registration</a>
+            <a href="#">Feedback</a>
+            <a href="#">Contact</a>
+            <a href="#">Profile</a>
+        </div>
+    </nav>
+
+    <div class="background-image"></div>
+
+    <form class="feedback-container">
+        <h2 class="feedback-title">Student Mess Registration</h2>
+        
+        <div class="form-group">
+            <label>Name:</label>
+            <input type="text" name="name" class="feedback-input" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Registration Number:</label>
+            <input type="text" name="registration_number" class="feedback-input" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" name="email" class="feedback-input" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Phone Number:</label>
+            <input type="tel" name="phone" class="feedback-input" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Gender:</label>
+            <select name="gender" class="feedback-input" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Block:</label>
+            <input type="text" name="block" class="feedback-input" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Room:</label>
+            <input type="text" name="room" class="feedback-input" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Mess Type:</label>
+            <div class="satisfaction-options">
+                <label class="satisfaction-option">
+                    <input type="radio" name="mess_type" value="veg"> Vegetarian
+                </label>
+                <label class="satisfaction-option">
+                    <input type="radio" name="mess_type" value="non-veg"> Non-Vegetarian
+                </label>
+                <label class="satisfaction-option">
+                    <input type="radio" name="mess_type" value="special"> Special
+                </label>
+            </div>
+        </div>
+        
+        <div class="meal-suggestion-section">
+            <h3>Meal Suggestions</h3>
+            
+            <div class="meal-suggestion-group">
+                <label>Breakfast Suggestions:</label>
+                <textarea name="breakfast_suggestions" rows="4" class="feedback-input" placeholder="Suggest breakfast dishes, preferred items, frequency, etc."></textarea>
+            </div>
+            
+            <div class="meal-suggestion-group">
+                <label>Lunch Suggestions:</label>
+                <textarea name="lunch_suggestions" rows="4" class="feedback-input" placeholder="Suggest lunch dishes, preferred items, frequency, etc."></textarea>
+            </div>
+            
+            <div class="meal-suggestion-group">
+                <label>Snacks Suggestions:</label>
+                <textarea name="snacks_suggestions" rows="4" class="feedback-input" placeholder="Suggest snack items, preferred items, frequency, etc."></textarea>
+            </div>
+            
+            <div class="meal-suggestion-group">
+                <label>Dinner Suggestions:</label>
+                <textarea name="dinner_suggestions" rows="4" class="feedback-input" placeholder="Suggest dinner dishes, preferred items, frequency, etc."></textarea>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label>Additional Remarks:</label>
+            <textarea name="remarks" rows="4" class="feedback-input" placeholder="Any additional comments or special dietary requirements"></textarea>
+        </div>
+        
+        <button type="submit" class="send-button">SEND</button>
+    </form>
+</body>
+</html>
