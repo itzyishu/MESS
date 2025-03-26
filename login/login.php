@@ -57,7 +57,7 @@ session_start();
                 </div>
                 <div class="logo-section">
                     <div class="logo">
-                        <img src="images/logo.png" alt="MyMess Logo" />
+                        <img src="../images/logo.png" alt="MyMess Logo" />
                         <span>MyMess</span>
                     </div>
                 </div>
