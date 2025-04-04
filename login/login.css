@@ -1,3 +1,4 @@
+
 *{
     margin:0;
    padding: 0;
@@ -104,5 +105,19 @@
     color: white;
     font-size: xx-large;
   }
- 
- 
+  .links{
+    justify-content: space-around;
+    display: flex;
+    padding-top: 15px;
+    font-weight: bold;
+  }
+  button{
+    color: #6695e4;
+    border: none;
+    background-color: transparent;
+    font-size: 1 rem;
+    font-weight: bold;
+  }
+  button:hover{
+    color: #2165d9;
+  }

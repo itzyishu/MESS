@@ -1,0 +1,185 @@
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            background: url('../images/bg.png') no-repeat center center;
+            background-size: cover;
+            transition: background 0.5s ease-in-out;
+        }
+
+        .nav-bar {
+            background-color: #333333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #4CAF50;
+        }
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/bg.png') no-repeat center center;
+            background-size: cover;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        /* Feedback Container */
+        .feedback-container {
+            position: relative;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: rgba(50, 50, 50, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .feedback-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .satisfaction-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .satisfaction-option input {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+        }
+        .satisfaction-option input:checked {
+            background-color: #4CAF50;
+        }
+        .satisfaction1-option input {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+        }
+        .satisfaction1-option input:checked {
+            background-color: #4CAF50;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .feedback-input {
+            width: 100%;
+            background-color: rgba(51, 50, 50, 0.8);
+            border: none;
+            color: white;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .name-email-container {
+            display: flex;
+            gap: 10px;
+        }
+        .meal-suggestion-section {
+            margin-top: 20px;
+        }
+
+        .week-suggestion-section {
+            margin-top: 20px;
+            display: none; 
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+        }
+
+        .week-suggestion-section.visible {
+            display: block;
+            opacity: 1;
+        }
+        .additional-options {
+            display: none;
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+        }
+
+        .additional-options.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        .additional-remark-section {
+            margin-top: 20px;
+        }
+
+        .send-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .send-button:hover {
+            background-color: #45a049;
+        }
+
+        .send-button:active {
+            transform: scale(0.98);
+        }
+
+        .success-message {
+            display: none;
+            background-color: rgba(50, 200, 50, 0.8);
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .footer {
+            text-align: center;
+            color: #888;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(30, 30, 30, 0.8);
+        }

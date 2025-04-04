@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'connect.php';
+include '../feed/db_connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +23,7 @@ body {
 }
 
 .dashboard-container {
-    max-width: 1920px;
+    max-width: auto;
     margin: 0 auto;
     padding: 0px;
 }
@@ -39,8 +39,22 @@ header {
     margin-bottom: 30px;
     padding-right: 40px;
     padding-left: 40px;
-}
+    justify-content: space-between;
 
+    
+}
+.nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color:rgb(40, 149, 217);
+        }
 .logo {
     display: flex;
     align-items: center;
@@ -117,7 +131,7 @@ main h1 {
     color: white;
     border-radius: 50px;
     padding: 30px;
-    width: 300px;
+    width: 270px;
     height: 250px;
     transition: transform 0.3s ease;
     justify-content: space-evenly;
@@ -153,26 +167,40 @@ h1{
 </head>
 <body>
 <?php
-    if(isset($_SESSION['registrationNo'])){
-        $registrationNo = $_SESSION['registrationNo'];
-        $query=mysqli_query($conn, "SELECT register.* FROM `register` WHERE register.registrationNo='$registrationNo' ");
-        while($row=mysqli_fetch_array($query)){}}?>
+if (isset($_SESSION['login_success_message'])) {
+    echo "<div class='success-message'>" . $_SESSION['login_success_message'] . "</div>";
+    // Unset the session message so it only shows once
+    unset($_SESSION['login_success_message']);
+}
+
+// Check if there's any error message
+if (isset($_SESSION['error_message'])) {
+    echo "<div class='error-message'>" . $_SESSION['error_message'] . "</div>";
+    unset($_SESSION['error_message']);
+}?>
     <div class="dashboard-container">
         <header>
             <div class="logo">
                 <img src="../images/logo.png" alt="MyMess Logo">
                 <span>MyMess</span>
             </div>
+            <div class="nav-links">
+            <a href="../login/dashboard.php">Home</a>
+            <a href="https://messit.vinnovateit.com/">Mess Menu</a>
+            <a href="../next/rules.html" id="rules-link">Rules & Regulations</a>
+            <a href="../feed/feedback.php" id="feedback-link">FeedBack</a>
+        </div>
             <div class="header-right">
                 <div class="dropdown">
                     <button class="menu-icon">☰</button>
                     <div class="dropdown-content">
                         <a href="#" id="profile-link">Profile</a>
                         <a href="#" id="settings-link">Settings</a>
-                        <a href="rules.html" id="rules-link">Rules & Regulations</a>
+                        <a href="../next/rules.html" id="rules-link">Rules & Regulations</a>
                         <a href="https://messit.vinnovateit.com/" id="menu-link">View Menu</a>
-                        <a href="#" id="feedback-link">FeedBack</a>
-                        <a href="logout.php" id="logout-link">Logout</a>
+                        <a href="../feed/feedback.php" id="feedback-link">FeedBack</a>
+                        <a href="../feed/admin_panel.php" id="admin_panel">report</a>
+                        <a href="../logout.php" id="logout-link">Logout</a>
                     </div>
                 </div>
             </div>
@@ -182,7 +210,7 @@ h1{
             <h1>Welcome, MyMessUser!</h1>
             <div class="dashboard-grid">
                 <div class="dashboard-item">
-                    <a href="next/rules.html">
+                    <a href="../next/rules.html" target="blank">
                         <div class="icon"><img src="../images/rule.png" alt="RULES" width="150px" height="100px"></div>
                         <h3>Rules & Regulations</h3>
                     </a>
@@ -190,17 +218,25 @@ h1{
                 <div class="dashboard-item">
                     <a href="https://messit.vinnovateit.com/" target="_blank">
                         <div class="icon1">
-                            <img src="../images/rr.png" alt="MENU" width="300px" height="100px">
+                            <img src="../images/rr.png" alt="MENU" width="250px" height="100px">
                         </div>
                         
                     </a>
                 </div>
                 <div class="dashboard-item">
-                    <a href="next/feedback.html">
+                    <a href="../feed/feedback.php">
                         <div class="icon">
-                            <img src="../images/feed.png" alt="feedback" width="150px" height="100px">
+                            <img src="../images/feed.png" alt="feedback" width="150px" height="120px">
                         </div>
                         <h3>Feedback</h3>
+                    </a>
+                </div>
+                <div class="dashboard-item">
+                    <a href="../feed/admin_panel.php">
+                        <div class="icon">
+                            <img src="../images/r4.png" alt="admin" width="150px" height="115px">
+                        </div>
+                        <h3>Report</h3>
                     </a>
                 </div>
             </div>

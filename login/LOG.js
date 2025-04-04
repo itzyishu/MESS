@@ -1,8 +1,54 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('login-form');
-    const registrationInput = document.getElementById('registrationNo');
-    const passwordInput = document.getElementById('password');
-    const errorMessage = document.getElementById('error-message');
+    // UI Toggle Elements
+    const login = document.getElementById('login');
+    const sign = document.getElementById('sign');
+    const loginin = document.getElementById('loginin');
+    const signin = document.getElementById('signin');
+    
+    // Default display state
+    login.style.display = "block";
+    sign.style.display = "none";
+    
+    // Form elements - need to select by form and input ID to handle duplicate IDs
+    const loginForm = login.querySelector('#login-form');
+    const signupForm = sign.querySelector('#login-form');
+    
+    const loginRegInput = login.querySelector('#registrationNo');
+    const loginPwdInput = login.querySelector('#password');
+    const loginErrorMsg = login.querySelector('#error-message');
+    
+    const signupRegInput = sign.querySelector('#registrationNo');
+    const signupEmailInput = sign.querySelector('#email');
+    const signupPwdInput = sign.querySelector('#password');
+    const signupErrorMsg = sign.querySelector('#error-message');
+    
+    // Toggle between login and signup sections
+    signin.addEventListener('click', function(event) {
+        event.preventDefault();
+        
+        // Clear fields before showing signup form
+        signupRegInput.value = '';
+        signupEmailInput.value = '';
+        signupPwdInput.value = '';
+        signupErrorMsg.textContent = '';
+        
+        // Show signup form, hide login form
+        sign.style.display = "block";
+        login.style.display = "none";
+    });
+    
+    loginin.addEventListener('click', function(event) {
+        event.preventDefault();
+        
+        // Clear fields before showing login form
+        loginRegInput.value = '';
+        loginPwdInput.value = '';
+        loginErrorMsg.textContent = '';
+        
+        // Show login form, hide signup form
+        login.style.display = "block";
+        sign.style.display = "none";
+    });
 
     // Validation function for registration number
     function validateRegistrationNo(regNo) {
@@ -62,25 +108,68 @@ document.addEventListener('DOMContentLoaded', function() {
         return null; // No error
     }
 
-    // Form submission event listener
-    form.addEventListener('submit', function(event) {
-        // Reset error message
-        errorMessage.textContent = '';
-
-        // Validate registration number
-        const registrationError = validateRegistrationNo(registrationInput.value);
-        if (registrationError) {
-            event.preventDefault();
-            errorMessage.textContent = registrationError;
-            return;
+    // Email validation function
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return 'Please enter a valid email address';
         }
+        return null;
+    }
 
-        // Validate password
-        const passwordError = validatePassword(passwordInput.value);
-        if (passwordError) {
-            event.preventDefault();
-            errorMessage.textContent = passwordError;
-            return;
-        }
-    });
+    // Login form validation
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(event) {
+            // Reset error message
+            loginErrorMsg.textContent = '';
+
+            // Validate registration number
+            const registrationError = validateRegistrationNo(loginRegInput.value);
+            if (registrationError) {
+                event.preventDefault();
+                loginErrorMsg.textContent = registrationError;
+                return;
+            }
+
+            // Validate password
+            const passwordError = validatePassword(loginPwdInput.value);
+            if (passwordError) {
+                event.preventDefault();
+                loginErrorMsg.textContent = passwordError;
+                return;
+            }
+        });
+    }
+
+    // Signup form validation
+    if (signupForm) {
+        signupForm.addEventListener('submit', function(event) {
+            // Reset error message
+            signupErrorMsg.textContent = '';
+
+            // Validate registration number
+            const registrationError = validateRegistrationNo(signupRegInput.value);
+            if (registrationError) {
+                event.preventDefault();
+                signupErrorMsg.textContent = registrationError;
+                return;
+            }
+
+            // Validate email
+            const emailError = validateEmail(signupEmailInput.value);
+            if (emailError) {
+                event.preventDefault();
+                signupErrorMsg.textContent = emailError;
+                return;
+            }
+
+            // Validate password
+            const passwordError = validatePassword(signupPwdInput.value);
+            if (passwordError) {
+                event.preventDefault();
+                signupErrorMsg.textContent = passwordError;
+                return;
+            }
+        });
+    }
 });
