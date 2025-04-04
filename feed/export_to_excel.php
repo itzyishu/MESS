@@ -2,13 +2,6 @@
 // Include database connection
 include 'db_connect.php';
 
-// Check if user is logged in as admin (implement proper authentication)
-session_start();
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header("Location: admin_login.php");
-    exit;
-}
-
 // Get the report type from the URL parameter
 $report_type = isset($_GET['type']) ? $_GET['type'] : 'all';
 $specific_id = isset($_GET['id']) ? $_GET['id'] : null;

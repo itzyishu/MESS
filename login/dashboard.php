@@ -1,6 +1,16 @@
 <?php
 session_start();
 include '../feed/db_connect.php';
+
+// Check if user is logged in
+if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    $_SESSION['error_message'] = "Please login to access the dashboard";
+    header("Location: login.php");
+    exit();
+}
+
+// Get user's registration number for personalized welcome
+$userRegistration = isset($_SESSION['registrationNo']) ? $_SESSION['registrationNo'] : "User";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -163,6 +173,22 @@ main h1 {
 }
 h1{
     padding: 30px;
+}
+.success-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    border-radius: 5px;
+}
+.error-message {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    border-radius: 5px;
 }</style>
 </head>
 <body>
@@ -200,14 +226,14 @@ if (isset($_SESSION['error_message'])) {
                         <a href="https://messit.vinnovateit.com/" id="menu-link">View Menu</a>
                         <a href="../feed/feedback.php" id="feedback-link">FeedBack</a>
                         <a href="../feed/admin_panel.php" id="admin_panel">report</a>
-                        <a href="../logout.php" id="logout-link">Logout</a>
+                        <a href="../login/login.php" id="logout-link">Logout</a>
                     </div>
                 </div>
             </div>
         </header>
 
         <main>
-            <h1>Welcome, MyMessUser!</h1>
+            <h1>Welcome, <?php echo htmlspecialchars($userRegistration); ?>!</h1>
             <div class="dashboard-grid">
                 <div class="dashboard-item">
                     <a href="../next/rules.html" target="blank">
@@ -244,22 +270,6 @@ if (isset($_SESSION['error_message'])) {
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-    // Check if user is logged in
-    const token = localStorage.getItem('token');
-    if (!token) {
-        // Redirect to login if no token
-       // window.location.href = 'login.html';
-    }
-
-    // Logout functionality
-    const logoutLink = document.getElementById('logout-link');
-    logoutLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Remove token and redirect to login
-        localStorage.removeItem('token');
-      //  window.location.href = 'login.html';
-    });
-
     // Profile link (placeholder)
     const profileLink = document.getElementById('profile-link');
     profileLink.addEventListener('click', (e) => {

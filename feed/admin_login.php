@@ -7,14 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     
     // Simple hardcoded authentication (replace with secure authentication in production)
-    // In a real application, you should use password hashing and secure validation
-    if ($username === 'mansi' && $password === 'qwer1234') {
-        $_SESSION['admin_logged_in'] = true;
-        header("Location: admin_panel.php");
-        exit;
-    } else {
-        $error_message = "Invalid username or password";
-    }
+    
 }
 ?>
 

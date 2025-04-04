@@ -29,7 +29,7 @@ session_start();
         // Function to show success message
         window.onload = function() {
             <?php if(isset($_SESSION['registration_success'])): ?>
-                alert("Registration Successful! ");
+                alert("Registration Successful! Please login with your credentials.");
                 <?php unset($_SESSION['registration_success']); ?>
             <?php endif; ?>
 
@@ -97,7 +97,7 @@ session_start();
         <div class="login-background">
             <div class="login-card">
                 <div class="login-form">
-                    <h2 >Sign up for the hostel mess of your choice:</h2>
+                    <h2 >Login to access your hostel mess:</h2>
                     
                     <form id="login-form" method="post" action="register.php">
                         
@@ -122,7 +122,7 @@ session_start();
                         <div id="error-message" class="error-message"></div>
                         <button type="submit" class="next-button" name="next-button">Next</button>
                         <div class="links">
-                            <p>Didn't have a account yet?</p>
+                            <p>Don't have an account yet?</p>
                             <button id="signin">Login</button>
                         </div>
                     </form>

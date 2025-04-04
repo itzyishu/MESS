@@ -61,9 +61,7 @@ if(isset($_POST['next-button'])) {
                 $_SESSION['registrationNo'] = $row['registrationNo'];
                 $_SESSION['user_id'] = $row['id']; // Assuming your table has an id column
                 $_SESSION['logged_in'] = true;
-
-                // Set success message
-             //   $_SESSION['login_success_message'] = "Login Successful";
+                $_SESSION['login_success'] = true;
 
                 // Redirect directly to dashboard with success message
                 header("Location: dashboard.php");
@@ -90,20 +88,24 @@ if(isset($_POST['next-button'])) {
             
             // New registration with email
             $insertQuery = "INSERT INTO register(registrationNo, email, password) VALUES ('$registrationNo', '$email', '$hashed_password')";
-        } else {
-            // New registration without email (basic form)
-            $insertQuery = "INSERT INTO register(registrationNo, password) VALUES ('$registrationNo', '$hashed_password')";
-        }
-        
-        if($conn->query($insertQuery) === TRUE) {
-            // Set a session variable to show registration success message
-            $_SESSION['registration_success'] = true;
             
-            // Redirect to login.php after successful registration
-            header("Location: dashboard.php");
-            exit();
+            if($conn->query($insertQuery) === TRUE) {
+                // Set session variables for the new user
+                $_SESSION['registrationNo'] = $registrationNo;
+                $_SESSION['logged_in'] = true;
+                $_SESSION['registration_success'] = true;
+                
+                // Redirect directly to dashboard after successful registration
+                header("Location: dashboard.php");
+                exit();
+            } else {
+                $_SESSION['error_message'] = "Registration failed: " . $conn->error;
+                header("Location: login.php");
+                exit();
+            }
         } else {
-            $_SESSION['error_message'] = "Registration failed: " . $conn->error;
+            // User tried to login with a non-existent registration number
+            $_SESSION['error_message'] = "Registration number not found. Please sign up first.";
             header("Location: login.php");
             exit();
         }
