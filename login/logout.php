@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db_connect.php';
+include 'connect.php';
 // Unset all session variables
 $_SESSION = array();
 
