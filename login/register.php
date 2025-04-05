@@ -45,7 +45,7 @@ if(isset($_POST['next-button'])) {
         // Registration number exists
         if ($isSignup) {
             // User tried to signup with existing registration number
-            $_SESSION['error_message'] = "Registration number already exists. Please login instead.";
+            $_SESSION['error_message'] = "Registration number already exists. Please sign in instead.";
             header("Location: login.php");
             exit();
         } else {

@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 ?>
@@ -29,7 +30,7 @@ session_start();
         // Function to show success message
         window.onload = function() {
             <?php if(isset($_SESSION['registration_success'])): ?>
-                alert("Registration Successful! Please login with your credentials.");
+               // alert("Registration Successful! Please login with your credentials.");
                 <?php unset($_SESSION['registration_success']); ?>
             <?php endif; ?>
 

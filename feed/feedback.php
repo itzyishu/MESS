@@ -97,7 +97,8 @@ include 'db_connect.php';
         </div>
 
         <div class="week-suggestion-section" id="daySuggestionSection">
-            <h3>On Which Day Would You Like to Eat Your Suggestions?</h3>
+            <h3>On Which Days Would You Like to Eat Your Suggestions?</h3>
+            <label class="satisfaction1-option"><input type="checkbox" name="suggestion_days[]" value="saturday"> Daily</label><br>
             <label class="satisfaction1-option"><input type="checkbox" name="suggestion_days[]" value="monday"> Monday</label><br>
             <label class="satisfaction1-option"><input type="checkbox" name="suggestion_days[]" value="tuesday"> Tuesday</label><br>
             <label class="satisfaction1-option"><input type="checkbox" name="suggestion_days[]" value="wednesday"> Wednesday</label><br>
@@ -121,7 +122,7 @@ include 'db_connect.php';
                 <label>How often would you like to repeat the suggestion?</label>
                 <select name="repeat_frequency" class="feedback-input" >
                     <option value="">Select Frequency</option>
-                    <option value="weekly">Daily</option>
+                    
                     <option value="weekly">Weekly</option>
                     <option value="bi-weekly">Every 2 Weeks</option>
                     <option value="monthly">Monthly</option>
