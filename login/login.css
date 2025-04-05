@@ -77,7 +77,7 @@
   .logo-section {
     flex: 1;
     width:50%;
-    background: linear-gradient(to bottom left , #092B9C,#033aa8,#3170de,#3487E1);
+    background: linear-gradient(to bottom left , #2b91df,#4ab1ed,#55c2f9,#34c4e1);
     display: flex;
     justify-content: center;
     align-items: center;

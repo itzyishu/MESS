@@ -9,6 +9,16 @@ session_start();
     <title>MyMess - Hostel Mess Login</title>
     <link rel="stylesheet" href="login.css">
     <style>
+        
+  .logo-section {
+    flex: 1;
+    width:50%;
+    background: linear-gradient(to bottom left ,rgb(43, 100, 223),rgb(74, 145, 237),rgb(61, 167, 220),rgb(52, 161, 225));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
     .links{
     justify-content: space-evenly;
     display: flex;
